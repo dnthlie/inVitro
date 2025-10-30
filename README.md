@@ -1,6 +1,7 @@
 # <ins> in Vitro </ins>
 CS 210 - Group 2 Project <br/>
 
+[UML Editor Link](https://lucid.app/lucidchart/41836643-560a-4c94-99b7-0ab4283b3906/edit?viewport_loc=-274%2C-410%2C3222%2C1619%2C0_0&invitationId=inv_4aef8a7f-afef-4d2d-b327-cb64e803f4d9)
 
 ## 1. Introduction: 
 In Vitro is a text-based adventure RPG where the player assumes the role of a human test subject attempting to escape an alien spaceship after being abducted. 
