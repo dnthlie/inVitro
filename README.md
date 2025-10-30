@@ -1,6 +1,5 @@
 # <ins> in Vitro </ins>
-CS 210 - Group 2 Project
-
+CS 210 - Group 2 Project <br/>
 
 
 ## 1. Introduction: 
@@ -38,17 +37,17 @@ The game is designed for people who enjoy story driven role playing games, puzzl
 
 
 ## 5. Prioritization
-Must Have:
-- A CRT like display with a text based interface. 
-- An inventory layout from command
-- At least one or more levels to progress.
-- Accurate responses for input (whether right or wrong)
+### Must Have:
+- [ ] A CRT like display with a text based interface. 
+- [ ] An inventory layout from command
+- [ ] At least one or more levels to progress.
+- [ ] Accurate responses for input (whether right or wrong)
 
-## Should Have:
-- At least 3 puzzles for the player to solve. 
-- Fun witty dialogue from the scientist aliens watching over you. 
-- Multiple endings
-- Easter Eggs
+### Should Have:
+- [ ] At least 3 puzzles for the player to solve. 
+- [ ] Fun witty dialogue from the scientist aliens watching over you. 
+- [ ] Multiple endings
+- [ ] Easter Eggs
 
-## Nice to Have:
-- A way to save your progress so you don’t have to start from scratch each time
+### Nice to Have:
+- [ ] A way to save your progress so you don’t have to start from scratch each time
