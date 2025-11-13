@@ -11,14 +11,14 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="530.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@computer_window.png" />
+            <Image url="@resources/vision board/computer_window.png" />
          </image>
       </ImageView>
       <VBox layoutX="34.0" layoutY="38.0" prefHeight="246.0" prefWidth="330.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="178.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@alien.png" />
+                  <Image url="@resources/vision board/alien.png" />
                </image>
             </ImageView>
             <HBox prefHeight="98.0" prefWidth="388.0">
