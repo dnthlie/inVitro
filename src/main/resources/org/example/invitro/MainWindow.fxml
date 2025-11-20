@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="688.0" prefWidth="688.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="690.0" prefWidth="690.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="702.0" fitWidth="690.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Assets/1_Alien_Image.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox layoutX="1.0" layoutY="3.0" opacity="0.24" prefHeight="690.0" prefWidth="690.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="702.0" fitWidth="690.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Assets/Scanlines.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox opacity="0.24" prefHeight="690.0" prefWidth="690.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="702.0" fitWidth="690.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Assets/Glare_Vignette.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <HBox layoutX="76.0" layoutY="379.0" prefHeight="112.0" prefWidth="542.0" style="-fx-background-color: black;">
+         <children>
+            <TextField prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: black; -fx-text-fill: #517A63;" text="Sample Text" />
+         </children>
+      </HBox>
+      <ImageView fitHeight="690.0" fitWidth="690.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/Terminal_Layer.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
