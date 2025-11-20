@@ -1,4 +1,4 @@
-package inVitro.Controller;
+package inVitro;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
