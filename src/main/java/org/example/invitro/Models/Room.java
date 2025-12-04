@@ -8,6 +8,9 @@ public class Room {
     private String roomName;                                    //Room name
     private String description;                                 //Description of room
     private boolean isLocked;                                   //Is room locked
+    private Room nextRoom;
+    private Room prevRoom;
+    private String imageURL;
     //Add more later
 
     ///////// FULL CONSTRUCTOR
