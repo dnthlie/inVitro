@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="688.0" prefWidth="688.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="688.0" prefWidth="688.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.invitro.Controller.UIController">
    <children>
       <VBox prefHeight="690.0" prefWidth="690.0" style="-fx-background-color: black;">
          <children>
@@ -38,7 +38,7 @@
       </VBox>
       <HBox layoutX="76.0" layoutY="379.0" prefHeight="112.0" prefWidth="542.0" style="-fx-background-color: black;">
          <children>
-            <TextField prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: black; -fx-text-fill: #517A63;" text="Sample Text" />
+            <TextField onKeyPressed="#handleTextInput" fx:id="text_input" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: black; -fx-text-fill: #517A63;" text="Sample Text" />
          </children>
       </HBox>
       <ImageView fitHeight="690.0" fitWidth="690.0" pickOnBounds="true" preserveRatio="true">
