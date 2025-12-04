@@ -4,6 +4,7 @@ module org.example.invitro {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens org.example.invitro to javafx.fxml;
     exports org.example.invitro;
