@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
+//THIS IS WHERE GAME RUNS
 public class GameApplication extends Application {
 
     public static void main(String[] args) { launch(args); }
