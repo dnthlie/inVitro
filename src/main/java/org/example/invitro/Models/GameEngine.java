@@ -1,8 +1,14 @@
 package org.example.invitro.Models;
 
+
 import java.util.Scanner;
 
 public class GameEngine {
+    public static Room currentRoom = new Room("Entrance", "A cold metal room with a strange alien looking at you", false, "@Assets/1_Alien_Image.png", null, null);
+
+    public GameEngine() {
+    }
+
     public static void main(String[] args) {
         //TESTING GAME LOGIC
 
