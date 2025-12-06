@@ -13,7 +13,7 @@
             <children>
                 <ImageView fitHeight="702.0" fitWidth="690.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Assets/1_Alien_Image.png" />
+                        <Image url="@Assets/room images/Entrance.png" />
                     </image>
                 </ImageView>
             </children>

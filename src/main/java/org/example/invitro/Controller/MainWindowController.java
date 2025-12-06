@@ -2,21 +2,41 @@ package org.example.invitro.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.KeyCode;
 import org.example.invitro.Models.GameEngine;
+import org.example.invitro.Models.Room;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class MainWindowController {
+    Room currentRoom = new Room(GameEngine.title);
+
+    @FXML
+    private ImageView room_image;
+
     public static HashSet<String> single_word_command = new HashSet<>(Arrays.asList(
             "look",
-            "inventory"
+            "inventory",
+            "start"
     ));
 
     public static HashSet<String> two_word_command = new HashSet<>(Arrays.asList(
             "go",
-            "grab"
+            "grab",
+            "open",
+            "volume"
+    ));
+
+    //map of objects or "nouns" that can be interatcted with in game
+    public static HashSet<String> nouns = new HashSet<>(Arrays.asList(
+            "door",
+            "crate",
+            "chamber",
+            "keycard"
     ));
 
     public String[] validate_input(String text_input) {
@@ -65,7 +85,7 @@ public class MainWindowController {
         switch (words[0]) {
             case "look":
                 // function for look
-                update_message(GameEngine.currentRoom.getDescription());
+                update_message(currentRoom.getDescription());
                 break;
             case "inventory":
                 // function for inventory
@@ -76,6 +96,13 @@ public class MainWindowController {
             case "grab":
                 // function for grab
                 break;
+            case "start":
+                if (currentRoom.getRoomName().equals("Title")) {
+                    currentRoom = currentRoom.getNextRoom();
+                    room_image.setImage(new Image(currentRoom.getImageURL()));
+                    SoundController.getInstance().fadeTitleVolume();
+
+                }
             case "ERROR":
                 update_message(words[1]);
                 break;
