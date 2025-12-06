@@ -14,10 +14,13 @@ public class Room {
     //Add more later
 
     ///////// FULL CONSTRUCTOR
-    public Room(String roomName, String description, boolean isLocked) {
+    public Room(String roomName, String description, boolean isLocked, String imageURL, Room nextRoom, Room prevRoom) {
         this.roomName = roomName;
         this.description = description;
         this.isLocked = isLocked;
+        this.imageURL = imageURL;
+        this.nextRoom = nextRoom;
+        this.prevRoom = prevRoom;
     }
 
     ///////// DEFAULT CONSTRUCTOR
@@ -25,6 +28,9 @@ public class Room {
         this.roomName = "";
         this.description = "";
         this.isLocked = false;
+        this.imageURL = "";
+        this.nextRoom = null;
+        this.prevRoom = null;
     }
 
     ///////// COPY CONSTRUCTOR
@@ -32,6 +38,9 @@ public class Room {
         this.roomName = otherRoom.roomName;
         this.description = otherRoom.description;
         this.isLocked = otherRoom.isLocked;
+        this.imageURL = otherRoom.imageURL;
+        this.nextRoom = otherRoom.nextRoom;
+        this.prevRoom = otherRoom.prevRoom;
     }
 
     ///////// GETTERS
