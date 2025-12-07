@@ -6,14 +6,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.KeyCode;
-import org.example.invitro.Models.GameEngine;
 import org.example.invitro.Models.Room;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class MainWindowController {
-    Room currentRoom = new Room(GameEngine.title);
+    Room currentRoom = new Room(RoomController.title);
 
     @FXML
     private ImageView room_image;

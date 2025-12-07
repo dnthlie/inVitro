@@ -7,11 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import org.example.invitro.Controller.MainWindowController;
 import org.example.invitro.Controller.SoundController;
-import javafx.animation.PauseTransition;
-import javafx.util.Duration;
-import org.example.invitro.Models.GameEngine;
+import org.example.invitro.Controller.RoomController;
 
 import java.io.IOException;
 
@@ -27,7 +24,7 @@ public class GameApplication extends Application {
         //Custom DOS Font
         Font dosFont = Font.loadFont(getClass().getResourceAsStream("/org/example/invitro/Assets/Perfect DOS VGA 437 Win.ttf"), 30);
         System.out.println("Loaded font: " + dosFont);
-        GameEngine.initializeRooms();
+        RoomController.initializeRooms();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
 
