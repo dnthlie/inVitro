@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.example.invitro.Controller.SoundController;
-import org.example.invitro.Models.RoomController;
+import org.example.invitro.Controller.RoomController;
 
 import java.io.IOException;
 
