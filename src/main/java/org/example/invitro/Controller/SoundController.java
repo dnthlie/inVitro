@@ -1,10 +1,7 @@
 package org.example.invitro.Controller;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javax.sound.sampled.*;
 import javafx.animation.PauseTransition;
-import java.io.IOException;
 import java.net.URL;
 
 
@@ -50,11 +47,10 @@ public class SoundController {
             float current = volume.getValue();
 
             if (current <= -60f) {
-                // fade finished
                 titleClip.stop();
             } else {
-                volume.setValue(current - 1f); // reduce volume
-                pause.playFromStart();         // 🔥 restart the fade step
+                volume.setValue(current - 1f);
+                pause.playFromStart();
             }
         });
         pause.play();

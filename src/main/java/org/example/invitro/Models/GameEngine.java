@@ -8,7 +8,7 @@ public class GameEngine {
     //So we use setAdjacentRooms in GameApplication
     public static Room title = new Room("Title", "This is the title screen", false, "/org/example/invitro/Assets/room images/TitleCard.png");
     public static Room entrance = new Room("Entrance", "A cold metal room with a strange alien looking at you", false, "/org/example/invitro/Assets/room images/Entrance.png");
-    public static Room crate = new Room("Crate", "A mostly empty room with a crate directly in the middle and a door on the left", true,"/org/example/invitro/Assets/room images/Crate.png");
+    public static Room crate = new Room("Crate", "A mostly empty room with a crate directly in the middle and a door on the left", false,"/org/example/invitro/Assets/room images/Crate.png");
     public static Room chamber = new Room("Chamber", "A confined room with what looks to be some form of chamber and a control panel",true,"/org/example/invitro/Assets/room images/Chamber.png");
     public static Room window = new Room("Window", "A large window with 4 strange creatures that appear to be observing you", true,"/org/example/invitro/Assets/room images/Window.png");
 
