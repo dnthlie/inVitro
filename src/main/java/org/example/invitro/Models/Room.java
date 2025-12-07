@@ -14,7 +14,7 @@ public class Room {
     //Add more later
 
     ///////// FULL CONSTRUCTOR
-    public Room(String roomName, String description, boolean isLocked, String imageURL, Room nextRoom, Room prevRoom) {
+    public Room(String roomName, String description, boolean isLocked, String imageURL) {
         this.roomName = roomName;
         this.description = description;
         this.isLocked = isLocked;
@@ -52,6 +52,18 @@ public class Room {
         return description;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public Room getNextRoom() {
+        return nextRoom;
+    }
+    public Room getPrevRoom() {
+        return prevRoom;
+    }
+
+
     public boolean isLocked() {
         return isLocked;
     }
@@ -67,6 +79,11 @@ public class Room {
 
     public void setIsLocked(boolean isLocked) {
         this.isLocked = isLocked;
+    }
+
+    public void setAdjacentRooms(Room nextRoom, Room prevRoom) {
+        this.nextRoom = nextRoom;
+        this.prevRoom = prevRoom;
     }
 
     /*********** TESTING ***********/

@@ -23,8 +23,8 @@
             </ImageView>
             <HBox prefHeight="98.0" prefWidth="388.0">
                <children>
-                  <TextField editable="false" prefHeight="26.0" prefWidth="24.0" style="-fx-background-color: bl; -fx-text-fill: #517A63;" text="&gt;" />
-                  <TextField prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: bl; -fx-text-fill: #517A63;" text="Sample Text" />
+                  <TextField editable="false" prefHeight="26.0" prefWidth="24.0" style="-fx-background-color: black; -fx-text-fill: #517A63;-fx-font-family: 'Perfect DOS VGA 437 Win'; -fx-font-size: 18;" text="&gt;" />
+                  <TextField prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: black; -fx-text-fill: #517A63;-fx-font-family: 'Perfect DOS VGA 437 Win'; -fx-font-size: 18;" text="Sample Text" />
                </children>
             </HBox>
          </children>
