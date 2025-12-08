@@ -31,7 +31,7 @@ public class MainWindowController {
             "volume"
     ));
 
-    //map of objects or "nouns" that can be interatcted with in game
+    //map of objects or "nouns" that can be interacted with in game
     public static HashSet<String> nouns = new HashSet<>(Arrays.asList(
             "door",
             "crate",
@@ -102,7 +102,6 @@ public class MainWindowController {
                     room_image.setImage(new Image(currentRoom.getImageURL()));
                     SoundController.getInstance().fadeTitleVolume();
                     update_message("Welcome");
-                    text_input_id.setText("");
                 }
                 break;
 
@@ -131,6 +130,7 @@ public class MainWindowController {
         if (event.getCode() == KeyCode.ENTER) {
             update_message("");
             command_dispatcher(text_input_id.getText());
+            text_input_id.setText(""); //Clear text input when command is entered
         }
     }
 
