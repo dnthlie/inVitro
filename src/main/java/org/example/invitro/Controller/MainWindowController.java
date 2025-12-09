@@ -124,9 +124,24 @@ public class MainWindowController {
 
     @FXML
     protected void handle_key_press(KeyEvent event) {
+        //Adding keystroke sound detail when user types any alpha key
+        KeyCode key = event.getCode();
+        if (key.isLetterKey() || key.isDigitKey() || event.getCode()==KeyCode.BACK_SPACE) {
+            try{
+                SoundController.getInstance().playKeyStroke();
+            } catch (Exception kbe){
+                System.out.println(kbe.getMessage());
+            }
+        }
         // When user hits enter clear the previous message and
         // do action based on their input
         if (event.getCode() == KeyCode.ENTER) {
+            try{
+                SoundController.getInstance().playKeyBeep();
+            } catch (Exception kbe){
+                System.out.println(kbe.getMessage());
+            }
+
             update_message("");
             command_dispatcher(text_input_id.getText());
             text_input_id.setText(""); //Clear text input when command is entered
