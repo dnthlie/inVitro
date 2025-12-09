@@ -1,6 +1,7 @@
 package org.example.invitro.Controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -120,13 +121,28 @@ public class MainWindowController {
     private TextField text_input_id;
 
     @FXML
-    private TextField text_output_id;
+    private TextArea text_output_id;
 
     @FXML
     protected void handle_key_press(KeyEvent event) {
+        //Adding keystroke sound detail when user types any alpha key
+        KeyCode key = event.getCode();
+        if (key.isLetterKey() || key.isDigitKey() || event.getCode()==KeyCode.BACK_SPACE) {
+            try{
+                SoundController.getInstance().playKeyStroke();
+            } catch (Exception kbe){
+                System.out.println(kbe.getMessage());
+            }
+        }
         // When user hits enter clear the previous message and
         // do action based on their input
         if (event.getCode() == KeyCode.ENTER) {
+            try{
+                SoundController.getInstance().playKeyBeep();
+            } catch (Exception kbe){
+                System.out.println(kbe.getMessage());
+            }
+
             update_message("");
             command_dispatcher(text_input_id.getText());
             text_input_id.setText(""); //Clear text input when command is entered
@@ -151,7 +167,7 @@ public class MainWindowController {
                 } else {
                     currentRoom = currentRoom.getNextRoom();
                     room_image.setImage(new Image(currentRoom.getImageURL()));
-                    update_message("You open the door");
+                    update_message("You open the door and proceed into the next room");
                     text_input_id.setText("");
                 }
                 break;

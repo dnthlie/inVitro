@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.TextArea?>
 <AnchorPane prefHeight="960.0" prefWidth="960.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.invitro.Controller.MainWindowController">
     <children>
         <VBox prefHeight="960.0" prefWidth="960.0" style="-fx-background-color: black;">
@@ -23,10 +24,27 @@
             </image>
         </ImageView>
 
-      <VBox layoutX="120" layoutY="520" prefHeight="200" prefWidth="800" style="-fx-background-color: black;">
+      <VBox layoutX="120" layoutY="520" prefHeight="200" prefWidth="770" style="-fx-background-color: black;">
          <children>
              <TextField fx:id="text_input_id" onKeyPressed="#handle_key_press" prefHeight="26.0" prefWidth="541.0" promptText="&gt;" style="-fx-background-color: black; -fx-text-fill: #517A63;-fx-font-family: 'Perfect DOS VGA 437 Win';-fx-font-size: 28" />
-             <TextField fx:id="text_output_id"  layoutX="10.0" layoutY="10.0" onKeyPressed="#handle_key_press"  prefHeight="26.0" prefWidth="541.0" style="-fx-background-color: black; -fx-text-fill: #517A63;-fx-font-family: 'Perfect DOS VGA 437 Win';-fx-font-size: 24; " />
+             <TextArea fx:id="text_output_id"
+                       wrapText="true"
+                       editable="false"
+                       layoutX="10.0"
+                       layoutY="10.0"
+                       prefHeight="160.0"
+                       prefWidth="515.0"
+                       style="
+              -fx-background-color: black;
+              -fx-control-inner-background: black;
+              -fx-background-insets: 0;
+              -fx-background-radius: 0;
+              -fx-highlight-fill: black;
+              -fx-highlight-text-fill: #517A63;
+              -fx-text-fill: #517A63;
+              -fx-font-family: 'Perfect DOS VGA 437 Win';
+              -fx-font-size: 24;
+          " />
          </children>
       </VBox>
 

@@ -3,6 +3,7 @@ import javafx.util.Duration;
 import javax.sound.sampled.*;
 import javafx.animation.PauseTransition;
 import java.net.URL;
+import java.util.Random;
 
 
 
@@ -54,6 +55,49 @@ public class SoundController {
             }
         });
         pause.play();
+
+    }
+    public void playKeyBeep() throws Exception {
+        URL url = getClass().getResource("/org/example/invitro/Assets/Sounds/Keybeep.wav");  // your file path
+        AudioInputStream stream = AudioSystem.getAudioInputStream(url);
+
+        Clip keyClip = AudioSystem.getClip();
+        keyClip.open(stream);
+        keyClip.start();
+        keyClip.addLineListener(event -> {
+            if (event.getType() == LineEvent.Type.STOP) {
+                keyClip.close();
+            }
+        });
+
+
+    }
+
+    public void playKeyStroke() throws Exception {
+        Random rng = new Random();
+
+        String [] keyStrokeFiles = {
+                "/org/example/invitro/Assets/Sounds/Keystroke1.wav",
+                "/org/example/invitro/Assets/Sounds/Keystroke2.wav",
+                "/org/example/invitro/Assets/Sounds/Keystroke3.wav",
+                "/org/example/invitro/Assets/Sounds/Keystroke4.wav",
+                "/org/example/invitro/Assets/Sounds/Keystroke5.wav",
+        };
+        int x = rng.nextInt(5);
+        URL url = getClass().getResource(keyStrokeFiles[x]);
+        AudioInputStream stream = AudioSystem.getAudioInputStream(url);
+
+        Clip keystrokeClip = AudioSystem.getClip();
+        keystrokeClip.open(stream);
+        keystrokeClip.start();
+        keystrokeClip.addLineListener(event -> {
+            if (event.getType() == LineEvent.Type.STOP) {
+                keystrokeClip.close();
+            }
+        });
+
+
+
 
     }
 
