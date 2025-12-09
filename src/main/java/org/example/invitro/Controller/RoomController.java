@@ -9,7 +9,7 @@ public class RoomController {
     public static Room title = new Room("Title", "This is the title screen", false, "/org/example/invitro/Assets/room images/TitleCard.png");
     public static Room entrance = new Room("Entrance", "A cold metal room with a strange alien observing you through a window", false, "/org/example/invitro/Assets/room images/Entry.png");
     public static Room crate = new Room("Crate", "A mostly empty room with a crate directly in the middle and a door on the left", false,"/org/example/invitro/Assets/room images/Crate.png");
-    public static Room chamber = new Room("Chamber", "A confined room with what looks to be some form of chamber and a control panel",true,"/org/example/invitro/Assets/room images/Chamber.png");
+    public static Room chamber = new Room("Chamber", "A confined room with what looks to be some form of chamber and a control panel",false,"/org/example/invitro/Assets/room images/Chamber.png");
     public static Room window = new Room("Window", "A large window with 4 strange creatures that appear to be observing you", true,"/org/example/invitro/Assets/room images/Window.png");
 
 

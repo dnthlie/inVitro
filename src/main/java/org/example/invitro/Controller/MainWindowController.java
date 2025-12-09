@@ -167,7 +167,7 @@ public class MainWindowController {
                 } else {
                     currentRoom = currentRoom.getNextRoom();
                     room_image.setImage(new Image(currentRoom.getImageURL()));
-                    update_message("You open the door");
+                    update_message("You open the door and proceed into the next room");
                     text_input_id.setText("");
                 }
                 break;
