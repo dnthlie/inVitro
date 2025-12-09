@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="940.0" prefWidth="1033.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.invitro.Controller.HelpController">
+<AnchorPane prefHeight="941.0" prefWidth="1034.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.invitro.Controller.HelpController">
    <children>
-      <ImageView fitHeight="450.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="490.0" fitWidth="500.0" pickOnBounds="true">
          <image>
             <Image url="@Assets/help_Window.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
       </ImageView>
-      <VBox layoutX="13.0" layoutY="18.0" prefHeight="417.0" prefWidth="373.0">
+      <VBox layoutX="18.0" layoutY="18.0" prefHeight="454.0" prefWidth="462.0">
          <children>
-            <TextArea fx:id="help_text_id" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="418.0" prefWidth="370.0" style="-fx-background-color: black;                       -fx-control-inner-background: black;                       -fx-highlight-fill: black;                       -fx-highlight-text-fill: #517A63;                       -fx-text-fill: #517A63;                       -fx-font-family: 'Perfect DOS VGA 437 Win';                       -fx-font-size: 18;" text="TESTING AREA" wrapText="true" />
+            <TextArea fx:id="help_text_id" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="481.0" prefWidth="483.0" style="-fx-background-color: black;                       -fx-control-inner-background: black;                       -fx-highlight-fill: black;                       -fx-highlight-text-fill: #517A63;                       -fx-text-fill: #517A63;                       -fx-font-family: 'Perfect DOS VGA 437 Win';                       -fx-font-size: 18;" text="TESTING AREA" wrapText="true" />
          </children>
       </VBox>
-      <ImageView fitHeight="901.0" fitWidth="1065.0" layoutX="-305.0" layoutY="-224.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1004.0" fitWidth="996.0" layoutX="-305.0" layoutY="-224.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Assets/Glare_Vignette.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="583.0" fitWidth="640.0" layoutX="-116.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="637.0" fitWidth="801.0" layoutX="-116.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Assets/Scanlines.png" />
          </image>

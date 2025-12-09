@@ -25,14 +25,19 @@ public class HelpController {
     private void handleHelp() {
         StringBuilder sbHelp = new StringBuilder();
 
-        sbHelp.append("   --- Available commands: ---\n\n");
+        sbHelp.append("+ Play commands --------\n\n");
 
         // UPDATE as code progresses
-        sbHelp.append("volume    --  Change volume\n");
-        sbHelp.append("look      --  Observe surrounding area\n");
-        sbHelp.append("inventory --  Look at inventory\n");
-        sbHelp.append("open door --  Open door to next area\n");
-        sbHelp.append("exit/quit --  Close the game\n");
+        sbHelp.append("look        --     Observe surrounding area\n");
+        sbHelp.append("open door   --     Open door to next area\n");
+        sbHelp.append("go back     --     Go back to previous area\n");
+        sbHelp.append("inventory   --     Look at inventory\n");
+
+        sbHelp.append("\n\n\n+ System Commands ------------\n\n");
+        sbHelp.append("volume      --     Change volume\n");
+        //sbHelp.append("save        --     Save Game\n");
+        sbHelp.append("exit/quit   --     Close the game\n");
+
 
         String text = sbHelp.toString();
 
