@@ -25,7 +25,8 @@ public class MainWindowController {
             "start",
             "quit",
             "exit",
-            "help"
+            "help",
+            "commands"
     ));
 
     public static HashSet<String> two_word_command = new HashSet<>(Arrays.asList(
@@ -117,10 +118,14 @@ public class MainWindowController {
                 update_message(words[1]);
                 break;
 
+            // help+commands
             case "help":
                 handleHelp();
                 break;
-            //exits&quit
+            case "commands":
+                handleHelp();
+                break;
+            // exits&quit
             case "exit":
                 handleQuit();
                 break;
