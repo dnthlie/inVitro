@@ -1,5 +1,6 @@
 package org.example.invitro.Controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -21,7 +22,10 @@ public class MainWindowController {
     public static HashSet<String> single_word_command = new HashSet<>(Arrays.asList(
             "look",
             "inventory",
-            "start"
+            "start",
+            "quit",
+            "exit",
+            "help"
     ));
 
     public static HashSet<String> two_word_command = new HashSet<>(Arrays.asList(
@@ -113,7 +117,19 @@ public class MainWindowController {
                 update_message(words[1]);
                 break;
 
+            case "help":
+                handleHelp();
+                break;
+            //exits&quit
+            case "exit":
+                handleQuit();
+                break;
+            case "quit":
+                handleQuit();
+                break;
         }
+        // clear input
+        text_input_id.setText("");
     }
 
 
@@ -198,5 +214,21 @@ public class MainWindowController {
         }
     }
 
+    // help command for list of commands
+    private void handleHelp() {
+        StringBuilder help =  new StringBuilder();
+        help.append("Available commands:\n\n");
+
+        // UPDATE as code progresses
+        help.append("look, inventory, start, exit/quit");
+
+        update_message(help.toString());
+    }
+
+    // quit command to exit program
+    private void handleQuit() {
+        Platform.exit();
+        System.exit(0);
+    }
 }
 
