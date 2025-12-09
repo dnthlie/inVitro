@@ -25,7 +25,10 @@ public class HelpController {
     private void handleHelp() {
         StringBuilder sbHelp = new StringBuilder();
 
-        sbHelp.append("+ Play commands --------\n\n");
+        sbHelp.append("-- Use one or two word commands to solve --\n" +
+                "               the puzzle \n\n");
+
+        sbHelp.append("+ Word Hint Commands ------\n\n");
 
         // UPDATE as code progresses
         sbHelp.append("look        --     Observe surrounding area\n");
@@ -33,7 +36,8 @@ public class HelpController {
         sbHelp.append("go back     --     Go back to previous area\n");
         sbHelp.append("inventory   --     Look at inventory\n");
 
-        sbHelp.append("\n\n\n+ System Commands ------------\n\n");
+
+        sbHelp.append("\n\n+ System Commands ------------\n\n");
         sbHelp.append("volume      --     Change volume\n");
         //sbHelp.append("save        --     Save Game\n");
         sbHelp.append("exit/quit   --     Close the game\n");
