@@ -261,7 +261,7 @@ public class MainWindowController {
             });
 
             // set scene
-            Scene helpScene = new Scene(helpWindowRoot, 400, 450);
+            Scene helpScene = new Scene(helpWindowRoot, 500, 490);
             helpWindow.setScene(helpScene);
 
             // code to not affect main window
