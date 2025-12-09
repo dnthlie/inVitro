@@ -2,13 +2,19 @@ package org.example.invitro.Controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.example.invitro.Models.Room;
+
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -18,6 +24,9 @@ public class MainWindowController {
 
     @FXML
     private ImageView room_image;
+
+    // help window
+    private Stage helpWindow;
 
     public static HashSet<String> single_word_command = new HashSet<>(Arrays.asList(
             "look",
@@ -120,10 +129,10 @@ public class MainWindowController {
 
             // help+commands
             case "help":
-                handleHelp();
+                helpWindow();
                 break;
             case "commands":
-                handleHelp();
+                helpWindow();
                 break;
             // exits&quit
             case "exit":
@@ -219,15 +228,59 @@ public class MainWindowController {
         }
     }
 
-    // help command for list of commands
-    private void handleHelp() {
-        StringBuilder help =  new StringBuilder();
-        help.append("Available commands:\n\n");
+    // open help window
+    @FXML
+    private void helpWindow() {
+        // if window exists, just bring back to the front
+        if (helpWindow != null) {
+            helpWindow.toFront();
+            return;
+        }
 
-        // UPDATE as code progresses
-        help.append("look, inventory, start, exit/quit");
+        try {
+            // load fxml
+            FXMLLoader loadHelp = new FXMLLoader(getClass().getResource("/org/example/invitro/HelpWindow.fxml"));
+            Parent helpWindowRoot = loadHelp.load();
 
-        update_message(help.toString());
+            // connect helpController
+            HelpController helpController = loadHelp.getController();
+
+            // TEST: debugging
+            //helpController.setText("TESTING TEXT");
+
+            // create new stage (window)
+            helpWindow = new Stage();
+            helpWindow.setTitle(" --- Help Menu --- ");
+
+            // close help window when main window closes
+            Stage mainStage = (Stage) room_image.getScene().getWindow();
+            mainStage.setOnCloseRequest(e -> {
+                if(helpWindow != null) {
+                    helpWindow.close();
+                }
+            });
+
+            // set scene
+            Scene helpScene = new Scene(helpWindowRoot, 400, 450);
+            helpWindow.setScene(helpScene);
+
+            // code to not affect main window
+            helpWindow.initModality(Modality.NONE);
+
+            // pass stage to controller
+            if (helpController != null) {
+                helpController.setStage(helpWindow);
+            }
+
+            // clean close
+            helpWindow.setOnCloseRequest(e -> {
+                helpWindow = null;
+            });
+
+            helpWindow.show();
+        } catch (Exception e) {
+            System.err.println("Error opening help window" + e.getMessage());
+        }
     }
 
     // quit command to exit program
@@ -235,5 +288,6 @@ public class MainWindowController {
         Platform.exit();
         System.exit(0);
     }
+
 }
 

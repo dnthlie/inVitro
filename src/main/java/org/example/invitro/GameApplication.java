@@ -7,18 +7,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.example.invitro.Controller.MainWindowController;
 import org.example.invitro.Controller.SoundController;
 import org.example.invitro.Controller.RoomController;
 
 import java.io.IOException;
 
-//THIS IS WHERE GAME RUNS
+// THIS IS WHERE GAME RUNS
 public class GameApplication extends Application {
     @FXML
     private TextField text_output_id;
     public static void main(String[] args) { launch(args); }
 
-    //START VIEW
+    // START VIEW
     @Override
     public void start(Stage primaryStage) throws IOException {
         //Custom DOS Font
