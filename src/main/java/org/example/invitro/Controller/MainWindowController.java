@@ -1,6 +1,7 @@
 package org.example.invitro.Controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -120,7 +121,7 @@ public class MainWindowController {
     private TextField text_input_id;
 
     @FXML
-    private TextField text_output_id;
+    private TextArea text_output_id;
 
     @FXML
     protected void handle_key_press(KeyEvent event) {
