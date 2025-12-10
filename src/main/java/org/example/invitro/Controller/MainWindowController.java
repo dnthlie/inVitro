@@ -15,7 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.invitro.Models.Room;
 
-
+// GAME CONTROLLER - GAME MANAGEMENT
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -35,14 +35,15 @@ public class MainWindowController {
             "quit",
             "exit",
             "help",
-            "commands"
+            "commands",
+            "volume"                            //Nat - putting this in single word command/doesn't seem to be used for two words ??
     ));
 
     public static HashSet<String> two_word_command = new HashSet<>(Arrays.asList(
             "go",
             "grab",
-            "open",
-            "volume"
+            //"take",
+            "open"
     ));
 
     //map of objects or "nouns" that can be interacted with in game
