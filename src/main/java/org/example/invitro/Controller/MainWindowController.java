@@ -1,19 +1,25 @@
 package org.example.invitro.Controller;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
+import org.example.invitro.Models.Items;
+import org.example.invitro.Models.PlayerInventory;
 import org.example.invitro.Models.Room;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class MainWindowController {
-    Room currentRoom = new Room(RoomController.title);
+    Room currentRoom = RoomController.title;
+    boolean isInInventory = false;
 
     @FXML
     private ImageView room_image;
@@ -21,14 +27,16 @@ public class MainWindowController {
     public static HashSet<String> single_word_command = new HashSet<>(Arrays.asList(
             "look",
             "inventory",
-            "start"
+            "start",
+            "back"
     ));
 
     public static HashSet<String> two_word_command = new HashSet<>(Arrays.asList(
             "go",
             "grab",
             "open",
-            "volume"
+            "volume",
+            "search"
     ));
 
     //map of objects or "nouns" that can be interacted with in game
@@ -36,7 +44,8 @@ public class MainWindowController {
             "door",
             "crate",
             "chamber",
-            "keycard"
+            "keycard",
+            "crate"
     ));
 
     public String[] validate_input(String text_input) {
@@ -88,7 +97,7 @@ public class MainWindowController {
                 update_message(currentRoom.getDescription());
                 break;
             case "inventory":
-                // function for inventory
+                printInventory();
                 break;
             case "go":
                 handleGo(words[1]);
@@ -108,6 +117,12 @@ public class MainWindowController {
             case "open":
                 handleOpen(words[1]);
                 break;
+            case "search":
+                handleSearch(words[1]);
+                break;
+            case "back":
+                handleBack();
+                break;
 
             case "ERROR":
                 update_message(words[1]);
@@ -124,7 +139,7 @@ public class MainWindowController {
     private TextArea text_output_id;
 
     @FXML
-    protected void handle_key_press(KeyEvent event) {
+    public void handle_key_press(KeyEvent event) {
         //Adding keystroke sound detail when user types any alpha key
         KeyCode key = event.getCode();
         if (key.isLetterKey() || key.isDigitKey() || event.getCode()==KeyCode.BACK_SPACE) {
@@ -155,7 +170,7 @@ public class MainWindowController {
 
 
     //Handles the cases for when user types "open (noun)"
-    private void handleOpen(String noun){
+    public void handleOpen(String noun){
         if (noun == null){
             update_message("open what?");
         }
@@ -178,7 +193,7 @@ public class MainWindowController {
         }
     }
 
-    private void handleGo(String noun) {
+    public void handleGo(String noun) {
         if (noun == null){
             update_message("go where?");
         }
@@ -197,6 +212,97 @@ public class MainWindowController {
 
         }
     }
+
+    public void handleSearch(String noun) {
+        if (noun == null){
+            update_message("Theres nothing here to search");
+            text_input_id.setText("");
+        }
+        switch (noun) {
+            case "crate":
+
+                if (currentRoom.getRoomName().equals("Crate")) {
+
+                    Items found = null;
+                    for (Items i : currentRoom.getItems()) {
+                        if ("KeyCard".equalsIgnoreCase(i.getName())) {
+                            found = i;
+                            break;
+                        }
+                    }
+
+                    if (found != null) {
+                        PlayerInventory.getInstance().addItem(found);
+                        update_message("You found a Key Card");
+                        currentRoom.getNextRoom().setIsLocked(false);
+                        // now that the loop is DONE, it's safe to modify list
+                        currentRoom.removeRoomItem("KeyCard");
+                    } else {
+                        update_message("The crate is empty");
+                    }
+
+                } else {
+                    update_message("Theres nothing here to search");
+                }
+                break;
+
+        }
+    }
+
+    @FXML
+    public VBox inventory_vbox;
+
+
+    public void printInventory() {
+
+        isInInventory = true;
+
+        room_image.setImage(new Image("/org/example/invitro/Assets/room images/BlackScreen.png"));
+
+        //Adding the top "inventory" Text
+        Label inventory = new Label("--INVENTORY--");
+        inventory.setFocusTraversable(false);
+        inventory.setAlignment(Pos.CENTER_LEFT);
+
+        inventory.setStyle(
+                "-fx-background-color: transparent;" +
+                        "-fx-text-fill: #517A63;" +
+                        "-fx-font-family: 'Perfect DOS VGA 437 Win';" +
+                        "-fx-font-size: 30;" +
+                        "-fx-background-insets: 0;" +
+                        "-fx-border-width: 0;" +
+                        "-fx-border-color: transparent;"
+        );
+
+        inventory_vbox.getChildren().add(inventory);
+
+        for (Items item : PlayerInventory.getInstance().getItems()) {
+            Label inventoryItem = new Label(item.getName());
+            inventoryItem.setAlignment(Pos.CENTER_LEFT);
+            inventoryItem.setStyle(
+                    "-fx-background-color: transparent;" +
+                    "-fx-text-fill: #517A63;" +
+                    "-fx-font-family: 'Perfect DOS VGA 437 Win';" +
+                    "-fx-font-size: 24;" +
+                    "-fx-background-insets: 0;" +
+                    "-fx-border-width: 0;" +
+                    "-fx-border-color: transparent;"
+            );
+            inventory_vbox.getChildren().add(inventoryItem);
+        }
+    }
+
+    public void handleBack() {
+        if (isInInventory) {
+            inventory_vbox.getChildren().clear();
+            room_image.setImage(new Image(currentRoom.getImageURL()));
+            isInInventory = false;
+        } else  {
+            update_message("Not valid");
+        }
+    }
+
+
 
 }
 

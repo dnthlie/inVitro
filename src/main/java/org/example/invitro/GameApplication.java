@@ -25,6 +25,7 @@ public class GameApplication extends Application {
         Font dosFont = Font.loadFont(getClass().getResourceAsStream("/org/example/invitro/Assets/Perfect DOS VGA 437 Win.ttf"), 30);
         System.out.println("Loaded font: " + dosFont);
         RoomController.initializeRooms();
+        RoomController.intializeRoomItems();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
 

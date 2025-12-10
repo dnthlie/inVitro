@@ -12,4 +12,6 @@ module org.example.invitro {
 
     opens org.example.invitro.Controller to javafx.fxml;
     exports org.example.invitro.Controller;
+    exports org.example.invitro.Models;
+    opens org.example.invitro.Models to javafx.fxml;
 }

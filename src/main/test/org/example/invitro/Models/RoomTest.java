@@ -14,7 +14,7 @@ public class RoomTest {
 
     @BeforeAll
     public static void testSetup() {
-        testRoom = new Room("Title", "This is the title screen", false, "/org/example/invitro/Assets/room images/TitleCard.png");
+        testRoom = new Room("Title", "This is the title screen", false, "/org/example/invitro/Assets/room images/TitleCard.png",null);
     }
 
     @BeforeEach
@@ -35,7 +35,7 @@ public class RoomTest {
 
     @Test
     public void test_adjacent_rooms() {
-        Room nextRoom = new Room("Entrance", "A cold metal room with a strange alien looking at you", false, "/org/example/invitro/Assets/room images/Entrance.png");
+        Room nextRoom = new Room("Entrance", "A cold metal room with a strange alien looking at you", false, "/org/example/invitro/Assets/room images/Entrance.png",null);
 
         testRoom.setAdjacentRooms(nextRoom,null);
 

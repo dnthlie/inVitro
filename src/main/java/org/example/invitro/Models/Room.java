@@ -2,6 +2,9 @@
 
 package org.example.invitro.Models;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Room {
 
     ///////// DATA VARIABLES
@@ -11,16 +14,18 @@ public class Room {
     private Room nextRoom;
     private Room prevRoom;
     private String imageURL;
+    private ArrayList<Items> items;
     //Add more later
 
     ///////// FULL CONSTRUCTOR
-    public Room(String roomName, String description, boolean isLocked, String imageURL) {
+    public Room(String roomName, String description, boolean isLocked, String imageURL, ArrayList<Items> items) {
         this.roomName = roomName;
         this.description = description;
         this.isLocked = isLocked;
         this.imageURL = imageURL;
-        this.nextRoom = nextRoom;
-        this.prevRoom = prevRoom;
+        this.items = items;
+
+
     }
 
     ///////// DEFAULT CONSTRUCTOR
@@ -31,6 +36,7 @@ public class Room {
         this.imageURL = "";
         this.nextRoom = null;
         this.prevRoom = null;
+        this.items = null;
     }
 
     ///////// COPY CONSTRUCTOR
@@ -41,6 +47,7 @@ public class Room {
         this.imageURL = otherRoom.imageURL;
         this.nextRoom = otherRoom.nextRoom;
         this.prevRoom = otherRoom.prevRoom;
+        this.items = otherRoom.items;
     }
 
     ///////// GETTERS
@@ -62,7 +69,9 @@ public class Room {
     public Room getPrevRoom() {
         return prevRoom;
     }
-
+    public ArrayList<Items> getItems() {
+        return items;
+    }
 
     public boolean isLocked() {
         return isLocked;
@@ -84,6 +93,23 @@ public class Room {
     public void setAdjacentRooms(Room nextRoom, Room prevRoom) {
         this.nextRoom = nextRoom;
         this.prevRoom = prevRoom;
+    }
+    public void setItems(ArrayList<Items> items) {
+        this.items = items;
+    }
+
+    public boolean removeRoomItem(String itemName) {
+        Iterator<Items> it = items.iterator();
+        while (it.hasNext()) {
+            Items item = it.next();
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                it.remove();
+                System.out.println("Item with name " + itemName + " removed");
+                return true;
+            }
+        }
+        System.out.println("Item with name " + itemName + " not found");
+        return false;
     }
 
     /*********** TESTING ***********/
