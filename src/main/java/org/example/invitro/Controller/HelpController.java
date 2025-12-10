@@ -17,7 +17,7 @@ public class HelpController {
     @FXML
     public void initialize() {
         // TEST: debug
-        System.out.println("HelpController initialized");
+        //System.out.println("HelpController initialized");
         handleHelp();
     }
 
