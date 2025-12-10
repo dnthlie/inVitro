@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.TextArea?>
-<AnchorPane prefHeight="960.0"
-            prefWidth="960.0"
-            style="-fx-background-color: beige;"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.invitro.Controller.MainWindowController">
+<AnchorPane prefHeight="960.0" prefWidth="960.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.invitro.Controller.MainWindowController">
     <children>
-        <VBox prefHeight="960.0"
-              prefWidth="960.0"
-              style="-fx-background-color: black;">
+        <StackPane prefHeight="960.0" prefWidth="960.0" style="-fx-background-color: black;">
             <children>
                 <ImageView fx:id="room_image"
                            fitHeight="960.0"
@@ -24,17 +19,19 @@
                            pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image  url="@Assets/room images/TitleCard.png" />
+                        <Image url="@Assets/room images/TitleCard.png" />
                     </image>
                 </ImageView>
+                <VBox fx:id="inventory_vbox" maxHeight="400.0" maxWidth="600.0" prefHeight="300.0" prefWidth="400">
+               <StackPane.margin>
+                  <Insets bottom="300.0" top="50.0" />
+               </StackPane.margin>
+                </VBox>
             </children>
-        </VBox>
-        <ImageView  fitHeight="960"
-                    fitWidth="960"
-                    pickOnBounds="true"
-                    preserveRatio="true">
+        </StackPane>
+        <ImageView fitHeight="960" fitWidth="960" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@Assets/TextBox.png"/>
+                <Image url="@Assets/TextBox.png" />
             </image>
         </ImageView>
 
@@ -76,7 +73,7 @@
                    pickOnBounds="true"
                    preserveRatio="true">
             <image>
-                <Image url="@Assets/Scanlines.png"/>
+                <Image url="@Assets/Scanlines.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="960"
