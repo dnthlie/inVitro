@@ -1,8 +1,12 @@
 package org.example.invitro.Controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -12,8 +16,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import org.example.invitro.Models.Items;
 import org.example.invitro.Models.PlayerInventory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.example.invitro.Models.Room;
 
+// GAME CONTROLLER - GAME MANAGEMENT
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -24,11 +31,19 @@ public class MainWindowController {
     @FXML
     private ImageView room_image;
 
+    // help window
+    private Stage helpWindow;
+
     public static HashSet<String> single_word_command = new HashSet<>(Arrays.asList(
             "look",
             "inventory",
             "start",
             "back"
+            "quit",
+            "exit",
+            "help",
+            "commands",
+            "volume"                            //Nat - putting this in single word command/doesn't seem to be used for two words ??
     ));
 
     public static HashSet<String> two_word_command = new HashSet<>(Arrays.asList(
@@ -37,6 +52,7 @@ public class MainWindowController {
             "open",
             "volume",
             "search"
+            //"take"
     ));
 
     //map of objects or "nouns" that can be interacted with in game
@@ -128,7 +144,23 @@ public class MainWindowController {
                 update_message(words[1]);
                 break;
 
+            // help+commands
+            case "help":
+                helpWindow();
+                break;
+            case "commands":
+                helpWindow();
+                break;
+            // exits&quit
+            case "exit":
+                handleQuit();
+                break;
+            case "quit":
+                handleQuit();
+                break;
         }
+        // clear input
+        text_input_id.setText("");
     }
 
 
@@ -303,6 +335,67 @@ public class MainWindowController {
     }
 
 
+
+    // open help window
+    @FXML
+    private void helpWindow() {
+        // if window exists, just bring back to the front
+        if (helpWindow != null) {
+            helpWindow.toFront();
+            return;
+        }
+
+        try {
+            // load fxml
+            FXMLLoader loadHelp = new FXMLLoader(getClass().getResource("/org/example/invitro/HelpWindow.fxml"));
+            Parent helpWindowRoot = loadHelp.load();
+
+            // connect helpController
+            HelpController helpController = loadHelp.getController();
+
+            // TEST: debugging
+            //helpController.setText("TESTING TEXT");
+
+            // create new stage (window)
+            helpWindow = new Stage();
+            helpWindow.setTitle(" --- Help Menu --- ");
+
+            // close help window when main window closes
+            Stage mainStage = (Stage) room_image.getScene().getWindow();
+            mainStage.setOnCloseRequest(e -> {
+                if(helpWindow != null) {
+                    helpWindow.close();
+                }
+            });
+
+            // set scene
+            Scene helpScene = new Scene(helpWindowRoot, 500, 490);
+            helpWindow.setScene(helpScene);
+
+            // code to not affect main window
+            helpWindow.initModality(Modality.NONE);
+
+            // pass stage to controller
+            if (helpController != null) {
+                helpController.setStage(helpWindow);
+            }
+
+            // clean close
+            helpWindow.setOnCloseRequest(e -> {
+                helpWindow = null;
+            });
+
+            helpWindow.show();
+        } catch (Exception e) {
+            System.err.println("Error opening help window" + e.getMessage());
+        }
+    }
+
+    // quit command to exit program
+    private void handleQuit() {
+        Platform.exit();
+        System.exit(0);
+    }
 
 }
 

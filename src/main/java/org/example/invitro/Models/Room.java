@@ -1,9 +1,8 @@
-// 11/12/25 - may change later for something more simplified for UI?
-
 package org.example.invitro.Models;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class Room {
 
@@ -13,6 +12,8 @@ public class Room {
     private boolean isLocked;                                   //Is room locked
     private Room nextRoom;
     private Room prevRoom;
+    private String unlockedMessage;
+    private String lockedMessage;
     private String imageURL;
     private ArrayList<Items> items;
     //Add more later
@@ -24,7 +25,10 @@ public class Room {
         this.isLocked = isLocked;
         this.imageURL = imageURL;
         this.items = items;
-
+        this.nextRoom = nextRoom;
+        this.prevRoom = prevRoom;
+        this.unlockedMessage = "Room is unlocked!!";
+        this.lockedMessage = "This room is locked!";
 
     }
 
@@ -48,21 +52,20 @@ public class Room {
         this.nextRoom = otherRoom.nextRoom;
         this.prevRoom = otherRoom.prevRoom;
         this.items = otherRoom.items;
+
     }
 
     ///////// GETTERS
     public String getRoomName() {
         return roomName;
     }
-
     public String getDescription() {
         return description;
     }
-
+    public boolean isLocked() { return isLocked; }
     public String getImageURL() {
         return imageURL;
     }
-
     public Room getNextRoom() {
         return nextRoom;
     }
@@ -76,20 +79,24 @@ public class Room {
     public boolean isLocked() {
         return isLocked;
     }
+    public String getUnlockedMessage() { return unlockedMessage; }
+    public String getLockedMessage() { return lockedMessage; }
 
     ///////// SETTERS
     public void setRoomName(String roomName) {
         this.roomName = roomName;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public void setIsLocked(boolean isLocked) {
-        this.isLocked = isLocked;
+    public void setLocked(boolean locked) {
+        this.isLocked = locked;
     }
+    public void setUnlockedMessage(String unlockedMessage) { this.unlockedMessage = unlockedMessage; }
+    public void setLockedMessage(String lockedMessage) { this.lockedMessage = lockedMessage; }
 
+
+    ///////// METHODS
     public void setAdjacentRooms(Room nextRoom, Room prevRoom) {
         this.nextRoom = nextRoom;
         this.prevRoom = prevRoom;
@@ -112,16 +119,17 @@ public class Room {
         return false;
     }
 
-    /*********** TESTING ***********/
-    //@Test
-    public void enterRoom() {
-        if (isLocked) {
-            System.out.println("LOCKED ROOM: " + roomName);
-        } else {
-            System.out.println("UNLOCKED ROOM: " + roomName);
-        }
+    public void addItem(String item) {
+        items.add(item);
     }
 
+    public List<String> getItems() {
+        return items;
+    }
+
+    public boolean hasAllKeyItems(List<String> itemInInventory) {
+        return itemInInventory.containsAll(keyItems);
+    }
 
     @Override
     public String toString() {

@@ -13,7 +13,11 @@
     <children>
         <StackPane prefHeight="960.0" prefWidth="960.0" style="-fx-background-color: black;">
             <children>
-                <ImageView fx:id="room_image" fitHeight="960.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="room_image"
+                           fitHeight="960.0"
+                           fitWidth="960.0"
+                           pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
                         <Image url="@Assets/room images/TitleCard.png" />
                     </image>
@@ -23,9 +27,6 @@
                   <Insets bottom="300.0" top="50.0" />
                </StackPane.margin>
                 </VBox>
-
-
-
             </children>
         </StackPane>
         <ImageView fitHeight="960" fitWidth="960" pickOnBounds="true" preserveRatio="true">
@@ -34,24 +35,59 @@
             </image>
         </ImageView>
 
-      <VBox layoutX="120" layoutY="520" prefHeight="200" prefWidth="770" style="-fx-background-color: black;">
+      <VBox layoutX="120"
+            layoutY="520"
+            prefHeight="200"
+            prefWidth="770"
+            style="-fx-background-color: black;">
          <children>
-             <TextField fx:id="text_input_id" onKeyPressed="#handle_key_press" prefHeight="26.0" prefWidth="541.0" promptText="&gt;" style="-fx-background-color: black; -fx-text-fill: #517A63;-fx-font-family: 'Perfect DOS VGA 437 Win';-fx-font-size: 28" />
-             <TextArea fx:id="text_output_id" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="160.0" prefWidth="515.0" style="               -fx-background-color: black;               -fx-control-inner-background: black;               -fx-background-insets: 0;               -fx-background-radius: 0;               -fx-highlight-fill: black;               -fx-highlight-text-fill: #517A63;               -fx-text-fill: #517A63;               -fx-font-family: 'Perfect DOS VGA 437 Win';               -fx-font-size: 24;           " wrapText="true" />
+             <TextField fx:id="text_input_id"
+                        onKeyPressed="#handle_key_press"
+                        prefHeight="26.0"
+                        prefWidth="541.0"
+                        promptText="&gt;"
+                        style="-fx-background-color: black; -fx-text-fill: #517A63;-fx-font-family: 'Perfect DOS VGA 437 Win';-fx-font-size: 28" />
+             <TextArea fx:id="text_output_id"
+                       wrapText="true"
+                       editable="false"
+                       layoutX="10.0"
+                       layoutY="10.0"
+                       prefHeight="160.0"
+                       prefWidth="515.0"
+                       style="
+              -fx-background-color: black;
+              -fx-control-inner-background: black;
+              -fx-background-insets: 0;
+              -fx-background-radius: 0;
+              -fx-highlight-fill: black;
+              -fx-highlight-text-fill: #517A63;
+              -fx-text-fill: #517A63;
+              -fx-font-family: 'Perfect DOS VGA 437 Win';
+              -fx-font-size: 24;
+          " />
          </children>
       </VBox>
 
-        <ImageView fitHeight="960" fitWidth="960" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="960"
+                   fitWidth="960"
+                   pickOnBounds="true"
+                   preserveRatio="true">
             <image>
                 <Image url="@Assets/Scanlines.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="960" fitWidth="960" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="960"
+                   fitWidth="960"
+                   pickOnBounds="true"
+                   preserveRatio="true">
             <image>
                 <Image url="@Assets/Glare_Vignette.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="960" fitWidth="960" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="960"
+                   fitWidth="960"
+                   pickOnBounds="true"
+                   preserveRatio="true">
             <image>
                 <Image url="@Assets/Terminal_Layer.png" />
             </image>
