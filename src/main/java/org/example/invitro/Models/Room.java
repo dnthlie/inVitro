@@ -76,9 +76,7 @@ public class Room {
         return items;
     }
 
-    public boolean isLocked() {
-        return isLocked;
-    }
+
     public String getUnlockedMessage() { return unlockedMessage; }
     public String getLockedMessage() { return lockedMessage; }
 
@@ -118,18 +116,16 @@ public class Room {
         System.out.println("Item with name " + itemName + " not found");
         return false;
     }
-
+/*
     public void addItem(String item) {
         items.add(item);
-    }
+    }*/
 
-    public List<String> getItems() {
-        return items;
-    }
 
+/*
     public boolean hasAllKeyItems(List<String> itemInInventory) {
         return itemInInventory.containsAll(keyItems);
-    }
+    }*/
 
     @Override
     public String toString() {
