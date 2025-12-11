@@ -38,7 +38,7 @@ public class MainWindowController {
             "look",
             "inventory",
             "start",
-            "back"
+            "back",
             "quit",
             "exit",
             "help",
@@ -266,7 +266,7 @@ public class MainWindowController {
                     if (found != null) {
                         PlayerInventory.getInstance().addItem(found);
                         update_message("You found a Key Card");
-                        currentRoom.getNextRoom().setIsLocked(false);
+                        currentRoom.getNextRoom().setLocked(false);
                         // now that the loop is DONE, it's safe to modify list
                         currentRoom.removeRoomItem("KeyCard");
                     } else {
