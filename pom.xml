@@ -11,7 +11,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<junit.version>5.12.1</junit.version>  </properties>
+<junit.version>5.10.0</junit.version>  </properties>
 
   <dependencies>
     <dependency>
@@ -33,19 +33,27 @@
       <artifactId>bootstrapfx-core</artifactId>
       <version>0.4.0</version>
     </dependency>
-<dependency>
+    <!-- JUnit Jupiter API for writing tests -->
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit.version}</version>
+      <version>5.10.0</version> <!-- Use the latest stable version -->
       <scope>test</scope>
     </dependency>
+    <!-- JUnit Jupiter Engine for running tests -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.version}</version>
+      <version>5.10.0</version> <!-- Use the latest stable version -->
       <scope>test</scope>
     </dependency>
-
+    <!-- If you need JUnit 4 compatibility or vintage engine -->
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>5.10.0</version> <!-- Use the latest stable version -->
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
